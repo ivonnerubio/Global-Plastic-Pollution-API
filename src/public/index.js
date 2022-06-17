@@ -3,15 +3,34 @@
 const { application } = require('express');
 const express = require('express');
 
-const api = express();
+const app = express();
 
-api.listen(3000, () =>{
+app.listen(3000, () =>{
     console.log('api is running');
 });
 
-api.get('/',(req,res)=>{
+app.get('/',(req,res)=>{
     console.log('/');
     res.send('hello from get');
 });
 
-api.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
+
+
+
+// // Database 
+// const pgtools = require('pgtools');
+// const config = {
+//     user: "posgres",
+//     host: "localhost",
+//     password: "password",
+//     port: 5432
+// };
+
+// pgtools.createdb(config,"newDB", function(err,res){
+//     if(err){
+//         console.error(err);
+//         process.exit(-1);
+//     }
+//     console.log(res);
+// });
