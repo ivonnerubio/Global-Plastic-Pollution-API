@@ -2,7 +2,7 @@
   "name": "global-plastic-pollution-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/public/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,17 +11,22 @@
     "url": "git+https://github.com/ivonnerubio/Global-Plastic-Pollution-API.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ivonne Rubio",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ivonnerubio/Global-Plastic-Pollution-API/issues"
   },
   "homepage": "https://github.com/ivonnerubio/Global-Plastic-Pollution-API#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mysql": "^2.18.1",
     "pg": "^8.7.3",
-    "pgtools": "^0.3.2"
+    "pgtools": "^0.3.2",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui": "^4.12.0",
+    "swagger-ui-express": "^4.4.0"
   }
 }
