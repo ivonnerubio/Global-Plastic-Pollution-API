@@ -1,14 +1,14 @@
-const {Client} = require('pg');
+const Pool = require('pg').Pool;
 
-const client = new Client({
+const pool = new Pool({
     host: "localhost",
     user: "postgres",
     port: 5432,
     password: "",
-    database: "globalplasticproductionapi"
+    database: "global_plastic_pollution_database"
 });
 
-client.connect();
+module.exports = pool;
 
 // client.query(`CREATE TABLE table_name`,(error,res)=>{
 //         console.log(error.message);
