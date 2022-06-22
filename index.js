@@ -9,13 +9,34 @@ app.use(express.json())
 // ROUTES
 
 //get ALL Records
+app.get("/global_plastic_production",async(req,res) =>{
+    try{
+        const allRecords = await pool.query("SELECT * FROM global_plastic_production");
+        res.json(allRecords.rows)
+    }
+    catch(err){
+        console.error(err.message);
+    }
+});
+
+// GET RECORD BY ID
+app.get('/global_plastic_production/:id', async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const record = await pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id]);
+        res.json(record.rows[0]);
+
+    }
+    catch(error){
+        console.error(err.message);
+    }
+});
 
 
 
 //get a route
 
-// get a todo
-
+// POST NEW RECORD
 app.post("/global_plastic_production",async(req,res) =>{
     try{
         const {Entity} = req.body;
@@ -29,6 +50,8 @@ app.post("/global_plastic_production",async(req,res) =>{
         console.error(err.message);
     }
 });
+
+
 
 // delete
 
