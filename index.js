@@ -43,14 +43,13 @@ app.post("/global_plastic_production",async(req,res) =>{
         const {Entity} = req.body;
         const {Code} = req.body;
         const {Year} = req.body;
-        const {global_plastics_production} = req.body;
-        const newRecord = await pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,global_plastics_production) VALUES ($1) RETURNING * `,
-        [data.Entity,data.Code,data.Year]
+        const {Global_plastics_production} = req.body;
+        const newRecord = await pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
+        [Entity,Code,Year,Global_plastics_production]
         );
+        console.log(newRecord);
 
-        console.log(data.global_plastics_production);
-
-        // res.json(newRecord.rows[0]);
+        res.json(newRecord.rows[0]);
     }
     catch (err){
         console.error(err.message);
