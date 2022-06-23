@@ -59,6 +59,17 @@ app.post("/global_plastic_production",async(req,res) =>{
 
 
 // delete
+app.delete("/global_plastic_production/:id", async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const deleteRecord = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
+        res.json("Record deleted successfully");
+    }
+    catch(err){
+        console.error(err.message);
+    }
+});
+
 
 
 app.listen(
