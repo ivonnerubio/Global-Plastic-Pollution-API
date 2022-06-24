@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 
-const pool = require("./database");
+const pool = require("./data/database/database");
 
 app.use(express.json())
 
@@ -33,13 +33,9 @@ app.get('/global_plastic_production/:id', async(req,res)=>{
 });
 
 
-
-//get a route
-
 // POST NEW RECORD
 app.post("/global_plastic_production",async(req,res) =>{
     try{
-        let data = req.body;
         const {Entity} = req.body;
         const {Code} = req.body;
         const {Year} = req.body;
@@ -56,9 +52,15 @@ app.post("/global_plastic_production",async(req,res) =>{
     }
 });
 
+// UPDATE RECORD
+app.patch("/global_plastic_production/:id",async(req,res)=>{
+
+});
 
 
-// delete
+
+
+// DELETE RECORD
 app.delete("/global_plastic_production/:id", async(req,res)=>{
     try{
         const {id} = req.params;
@@ -69,6 +71,8 @@ app.delete("/global_plastic_production/:id", async(req,res)=>{
         console.error(err.message);
     }
 });
+
+
 
 
 
