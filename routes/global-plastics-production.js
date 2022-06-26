@@ -1,35 +1,82 @@
-"use strict";
-
 const express = require('express');
 const app = express();
 const PORT = 8080;
-const fetch = require('node-fetch');
 
-// Middleware to parse to JSON
-app.use(express.json());
+const pool = require("./data/database/database");
 
-// var globalPlasticProduction = JSON.parse('./data/json/global-plastics-production.json');
-// console.log(globalPlasticProduction);
-
-fetch("./global-plastics-production.json")
-    .then(function(resp){
-        return resp.json();
-    })
-    .then(function(data){
-        console.log(data);
-    })
-    
-app.listen(PORT, () => console.log('server is 🟢'))
-
+app.use(express.json())
 
 // ROUTES
-app.get('/globalPlasticProduction',(req,res)=>{
-    res.status(200).send(globalPlasticProduction)
+
+// GET ALL RECORDS
+app.get("/global_plastic_production",async(req,res) =>{
+    try{
+        const allRecords = await pool.query("SELECT * FROM global_plastic_production");
+        res.json(allRecords.rows)
+    }
+    catch(err){
+        console.error(err.message);
+    }
 });
 
-app.get('/globalPlasticProduction/year',(req,res)=>{
-    res.status(200).send(globalPlasticProduction)
+// GET RECORD BY ID
+app.get('/global_plastic_production/:id', async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const record = await pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id]);
+        res.json(record.rows[0]);
+
+    }
+    catch(error){
+        console.error(err.message);
+    }
 });
 
-app.use(express.static(__dirname + '/public'));
 
+// POST NEW RECORD
+app.post("/global_plastic_production",async(req,res) =>{
+    try{
+        const {Entity} = req.body;
+        const {Code} = req.body;
+        const {Year} = req.body;
+        const {Global_plastics_production} = req.body;
+        const newRecord = await pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
+        [Entity,Code,Year,Global_plastics_production]
+        );
+        console.log(newRecord);
+
+        res.json(newRecord.rows[0]);
+    }
+    catch (err){
+        console.error(err.message);
+    }
+});
+
+// UPDATE RECORD
+app.patch("/global_plastic_production/:id",async(req,res)=>{
+
+});
+
+
+
+
+// DELETE RECORD
+app.delete("/global_plastic_production/:id", async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const deleteRecord = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
+        res.json("Record deleted successfully");
+    }
+    catch(err){
+        console.error(err.message);
+    }
+});
+
+
+
+
+
+app.listen(
+    PORT, 
+    () => console.log(`api is running on http://localhost:${PORT}`)
+);
