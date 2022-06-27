@@ -9,8 +9,8 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
 //get ALL Records
 router.get("/",async(req,res) =>{
     try{
-        const allRecords = await pool.query("SELECT * FROM global_plastic_production");
-        res.json(allRecords.rows)
+        const records = await pool.query("SELECT * FROM global_plastic_production");
+        res.json(records.rows)
     }
     catch(err){
         console.error(err.message);
@@ -38,12 +38,11 @@ router.post("/",async(req,res) =>{
         const {Code} = req.body;
         const {Year} = req.body;
         const {Global_plastics_production} = req.body;
-        const newRecord = await pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
+        const record = await pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
         [Entity,Code,Year,Global_plastics_production]
         );
-        console.log(newRecord);
 
-        res.json(newRecord.rows[0]);
+        res.json(record.rows[0]);
     }
     catch (err){
         console.error(err.message);
@@ -62,7 +61,7 @@ router.patch("/:id",async(req,res)=>{
 router.delete("/:id", async(req,res)=>{
     try{
         const {id} = req.params;
-        const deleteRecord = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
+        const record = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
         res.json("Record deleted successfully");
     }
     catch(err){
