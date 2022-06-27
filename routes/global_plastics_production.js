@@ -1,15 +1,13 @@
 const express = require('express');
-const app = express();
-const PORT = 8080;
+const { database } = require('pg/lib/defaults');
 
-const pool = require("./data/database/database");
+const router = express.Router();
 
-app.use(express.json())
-
+const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-// GET ALL RECORDS
-app.get("/global_plastic_production",async(req,res) =>{
+//get ALL Records
+router.get("/",async(req,res) =>{
     try{
         const allRecords = await pool.query("SELECT * FROM global_plastic_production");
         res.json(allRecords.rows)
@@ -20,7 +18,7 @@ app.get("/global_plastic_production",async(req,res) =>{
 });
 
 // GET RECORD BY ID
-app.get('/global_plastic_production/:id', async(req,res)=>{
+router.get('/:id', async(req,res)=>{
     try{
         const {id} = req.params;
         const record = await pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id]);
@@ -34,7 +32,7 @@ app.get('/global_plastic_production/:id', async(req,res)=>{
 
 
 // POST NEW RECORD
-app.post("/global_plastic_production",async(req,res) =>{
+router.post("/",async(req,res) =>{
     try{
         const {Entity} = req.body;
         const {Code} = req.body;
@@ -53,7 +51,7 @@ app.post("/global_plastic_production",async(req,res) =>{
 });
 
 // UPDATE RECORD
-app.patch("/global_plastic_production/:id",async(req,res)=>{
+router.patch("/:id",async(req,res)=>{
 
 });
 
@@ -61,7 +59,7 @@ app.patch("/global_plastic_production/:id",async(req,res)=>{
 
 
 // DELETE RECORD
-app.delete("/global_plastic_production/:id", async(req,res)=>{
+router.delete("/:id", async(req,res)=>{
     try{
         const {id} = req.params;
         const deleteRecord = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
@@ -73,10 +71,4 @@ app.delete("/global_plastic_production/:id", async(req,res)=>{
 });
 
 
-
-
-
-app.listen(
-    PORT, 
-    () => console.log(`api is running on http://localhost:${PORT}`)
-);
+module.exports = router;
