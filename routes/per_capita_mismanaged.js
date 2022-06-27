@@ -21,7 +21,7 @@ router.get("/",async(req,res)=>{
 router.get("/:id",async (req,res) =>{
     try{
         const {id} = req.params;
-        const record = await pool.query("SELECT * FROM mismanaged_waste_global_total WHERE id=$1",[id]);
+        const record = await pool.query("SELECT * FROM per_capita_mismanaged WHERE id=$1",[id]);
         res.json(record.rows[0]);
     }  
     catch(err){
@@ -35,9 +35,12 @@ router.post("/",async (req,res) =>{
         const {Entity} = req.body;
         const {Code} = req.body;
         const {Year} = req.body;
-        const {Mismanaged_waste} = req.body;
+        const {Per_capita_mismanaged_plastic_waste} = req.body;
+        const {Gdp_per_capita} = req.body;
+        const {Total_population} = req.body;
+        const {Continent} = req.body;
 
-        const record = await pool.query(`INSERT INTO mismanaged_waste_global_total (Entity, Code, Year, Mismanaged_waste) VALUES ($1,$2,$3,$4) RETURNING *`,[Entity,Code,Year,Mismanaged_waste]);
+        const record = await pool.query(`INSERT INTO per_capita_mismanaged (Entity, Code, Year, Per_capita_mismanaged_plastic_waste,Gdp_per_capita,Total_population,Continent) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,[Entity,Code,Year,Per_capita_mismanaged_plastic_waste, Gdp_per_capita,Total_population,Continent]);
 
         res.json(record.rows[0]);
     }
@@ -57,7 +60,7 @@ router.patch("/:id",async(req,res)=>{
 router.delete("/:id",async (req,res) =>{
     try{
         const {id} = req.params;
-        const record = await pool.query("DELETE FROM mismanaged_waste_global_total WHERE id=$1",[id]);
+        const record = await pool.query("DELETE FROM per_capita_mismanaged WHERE id=$1",[id]);
         res.json(record.rows[0]);
     }  
     catch(err){
