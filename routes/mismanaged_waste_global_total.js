@@ -29,5 +29,22 @@ router.get("/:id",async (req,res) =>{
     }
 });
 
+// POST A NEW RECORD
+router.post("/",async (req,res) =>{
+    try{
+        const {Entity} = req.body;
+        const {Code} = req.body;
+        const {Year} = req.body;
+        const {Mismanaged_waste} = req.body;
+
+        const newRecord = await pool.query(`INSERT INTO mismanaged_waste_global_total (Entity, Code, Year, Mismanaged_waste) VALUES ($1,$2,$3,$4) RETURNING *`,[Entity,Code,Year,Mismanaged_waste]);
+
+        res.json(newRecord.rows[0]);
+    }
+    catch (err){
+        console.error(err.message);
+    }
+});
+
 
 module.exports = router;
