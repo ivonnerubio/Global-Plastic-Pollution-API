@@ -17,6 +17,17 @@ router.get("/",async(req,res)=>{
     }
 });
 
+// GET RECORD BY ID
+router.get("/:id",async (req,res) =>{
+    try{
+        const {id} = req.params;
+        const record = await pool.query("SELECT * FROM mismanaged_waste_global_total WHERE id=$1",[id]);
+        res.json(record.rows[0]);
+    }  
+    catch(err){
+        console.error(err.message);
+    }
+});
 
 
 module.exports = router;
