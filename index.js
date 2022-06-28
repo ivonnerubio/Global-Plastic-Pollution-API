@@ -39,7 +39,7 @@ const options = {
       },
       servers: [
         {
-          url: `http://localhost:${PORT}/`
+          url: `https://global-plastic-pollution-api.herokuapp.com/docs`
         }
       ]
     },
