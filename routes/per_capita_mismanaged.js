@@ -3,7 +3,7 @@ const { database } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-const pool = require("./data/database/database.js");
+const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
 
@@ -38,6 +38,7 @@ router.get("/",async(req,res)=>{
     }
 });
 
+
 // GET RECORD BY ID
 router.get("/:id",async (req,res) =>{
     try{
@@ -49,6 +50,7 @@ router.get("/:id",async (req,res) =>{
         console.error(err.message);
     }
 });
+
 
 // POST A NEW RECORD
 router.post("/",async (req,res) =>{
@@ -70,11 +72,11 @@ router.post("/",async (req,res) =>{
     }
 });
 
+
 // UPDATE RECORD
 router.patch("/:id",async(req,res)=>{
 
 });
-
 
 
 // DELETE RECORD BY ID
@@ -88,7 +90,6 @@ router.delete("/:id",async (req,res) =>{
         console.error(err.message);
     }
 });
-
 
 
 module.exports = router;
