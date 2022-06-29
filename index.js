@@ -9,55 +9,16 @@ const global_plastic_production_route = require('./routes/global_plastics_produc
 const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
 const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
 
+
 app.use('/global_plastic_production',global_plastic_production_route);
 app.use('/mismanaged_waste_global_total',mismanaged_waste_global_total_route);
 app.use('/per_capita_mismanaged',per_capita_mismanaged_route);
 
 
-
-// DOCS
-
-const swaggerUi = require("swagger-ui-express");
-const swaggerJsondoc = require("swagger-jsdoc");
-const options = {
-    swaggerDefinition: {
-      openapi: "3.0.0",
-      info: {
-        title: "Global Plastic Pollution API",
-        version: "1.0.0",
-        description:
-          "",
-        license: {
-          name: "MIT",
-          url: "https://thecodebuzz.com"
-        },
-        contact: {
-          name: "Global Plastic Pollution",
-          url: "https://thecodebuzz.com",
-          email: "irubio081@outlook.com"
-        }
-      },
-      servers: [
-        {
-          url: `https://global-plastic-pollution-api.herokuapp.com/docs`
-        }
-      ]
-    },
-    apis: ["routes/global_plastics_production.js",
-            "routes/mismanaged_waste_global_total.js",
-            "routes/per_capita_mismanaged.js"
-    ]
-  };
-  const specs = swaggerJsondoc(options);
-  app.use("/docs", swaggerUi.serve);
-   
-   
-  app.get(
-    "/docs",
-    swaggerUi.setup(specs, {
-      explorer: true
-    })
-  );
+// API DOCS
+const swaggerUi =require('swagger-ui-express');
+const YAML =require('yamljs');
+const swaggerDocument = YAML.load('routes/swagger.yaml');app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 app.listen(
