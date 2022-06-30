@@ -6,11 +6,23 @@ const swaggerJsondoc = require("swagger-jsdoc");
 
 app.use(express.json())
 
+
+
+const global_plastic_production_route = require('./routes/global_plastics_production');
+const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
+const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
+
+app.use('/global_plastic_production',global_plastic_production_route);
+app.use('/mismanaged_waste_global_total',mismanaged_waste_global_total_route);
+app.use('/per_capita_mismanaged',per_capita_mismanaged_route);
+
+
+
 const options = {
     swaggerDefinition: {
       openapi: "3.0.0",
       info: {
-        title: "TheCodebuzz API",
+        title: "Global Plastic Pollution API",
         version: "1.0.0",
         description:
           "Thecodebuzz test service to demo how to document your API",
@@ -19,9 +31,9 @@ const options = {
           url: "https://thecodebuzz.com"
         },
         contact: {
-          name: "TheCodeBuzz",
-          url: "https://thecodebuzz.com",
-          email: "info@thecodebuzz.com"
+          name: "Ivonne Rubio",
+          url: "https://www.ivonnerubio.com",
+          email: "irubio081@outlook.com"
         }
       },
       servers: [
@@ -49,18 +61,6 @@ app.get(
     explorer: true
   })
 );
-
-
-
-const global_plastic_production_route = require('./routes/global_plastics_production');
-const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
-const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
-
-app.use('/global_plastic_production',global_plastic_production_route);
-app.use('/mismanaged_waste_global_total',mismanaged_waste_global_total_route);
-app.use('/per_capita_mismanaged',per_capita_mismanaged_route);
-
-
 
 
 

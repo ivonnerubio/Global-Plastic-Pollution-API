@@ -11,21 +11,10 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  * tags:
  *   name: Global Plastic Production
  *   description: 
- */
- 
-/**
- * @swagger
- * path:
- *  /hello:
+ * paths:
+ *  /global_plastics_production:
  *    get:
- *      summary: Get greeting message from TheCodebuzz
- *      responses:
- *        "200":
- *          description: GET reponse from API
- *          content:
- *            application/json:
- *              schema:
- *                type: string
+ *      description: This should return all users
  */
 router.get("/",async(req,res) =>{
     try{
@@ -37,7 +26,13 @@ router.get("/",async(req,res) =>{
     }
 });
 
-// GET RECORD BY ID
+
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *    get:
+ *      description: This should return all users
+ */
 router.get('/:id', async(req,res)=>{
     try{
         const {id} = req.params;
@@ -51,7 +46,13 @@ router.get('/:id', async(req,res)=>{
 });
 
 
-// POST NEW RECORD
+
+/**
+ * @swagger
+ * /global_plastics_production:
+ *    post:
+ *      description: This should return all users
+ */
 router.post("/",async(req,res) =>{
     try{
         const {Entity} = req.body;
@@ -69,7 +70,13 @@ router.post("/",async(req,res) =>{
     }
 });
 
-// UPDATE RECORD
+
+/**
+ * @swagger
+ * /global_plastics_production:
+ *    update:
+ *      description: This should return all users
+ */
 router.patch("/:id",async(req,res)=>{
 
 });
@@ -77,7 +84,13 @@ router.patch("/:id",async(req,res)=>{
 
 
 
-// DELETE RECORD
+
+/**
+ * @swagger
+ * /global_plastics_production:
+ *    delete:
+ *      description: This should return all users
+ */
 router.delete("/:id", async(req,res)=>{
     try{
         const {id} = req.params;
