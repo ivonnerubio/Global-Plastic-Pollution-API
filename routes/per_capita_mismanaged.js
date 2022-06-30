@@ -6,12 +6,12 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-
+	
 /**
  * @swagger
  * tags:
- *   name: Per Capita Mismanaged 
- *   description: Greetings API from TheCodeBUzz
+ *   name: Per Capita Mismatched
+ *   description: 
  */
  
 /**

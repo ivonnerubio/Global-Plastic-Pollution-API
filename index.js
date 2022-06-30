@@ -4,6 +4,8 @@ const PORT = 8080;
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsondoc = require("swagger-jsdoc");
 
+app.use(express.json())
+
 const options = {
     swaggerDefinition: {
       openapi: "3.0.0",
@@ -28,18 +30,31 @@ const options = {
         }
       ]
     },
-    apis: []
-  };
+    apis: ["routes/global_plastics_production.js",
+        "routes/mismanaged_waste_global_total.js",
+        "routes/per_capita_mismanaged.js"
+        ]
+    };
 
-app.use(express.json())
+
+
+
+const specs = swaggerJsondoc(options);
+app.use("/docs", swaggerUi.serve);
+ 
+ 
+app.get(
+  "/docs",
+  swaggerUi.setup(specs, {
+    explorer: true
+  })
+);
+
+
 
 const global_plastic_production_route = require('./routes/global_plastics_production');
 const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
 const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
-
-app.get("/hello", (req, res) => {
-  res.json("Hello world!");
-});
 
 app.use('/global_plastic_production',global_plastic_production_route);
 app.use('/mismanaged_waste_global_total',mismanaged_waste_global_total_route);

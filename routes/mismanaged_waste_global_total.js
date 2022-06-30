@@ -6,12 +6,12 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-
+	
 /**
  * @swagger
  * tags:
- *   name: Hello
- *   description: Greetings API from TheCodeBUzz
+ *   name: Mismanaged Waste
+ *   description: 
  */
  
 /**
@@ -28,7 +28,6 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              schema:
  *                type: string
  */
-// GET ALL RECORDS
 router.get("/",async(req,res)=>{
     try{
         const records = await pool.query("SELECT * FROM per_capita_mismanaged");
