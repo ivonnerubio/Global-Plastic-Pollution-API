@@ -8,14 +8,32 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
 	
 /**
  * @swagger
+ * components:
+ *  schemas:
+ *      Global Plastic Production:
+ *          type: object
+ *          required:
+ *              - id
+ *              - number
+ *          properties:
+ *           id:
+ *              type: integer
+ *              description: The auto generator ID of the record
+ *          title:
+ *              
  * tags:
  *   name: Global Plastic Production
  *   description: 
  * paths:
- *  /global_plastics_production:
+ *  /global_plastics_production/:id:
  *    get:
  *      description: This should return all users
+ *      responses:
+ *          '200'
  */
+
+
+
 router.get("/",async(req,res) =>{
     try{
         const records = await pool.query("SELECT * FROM global_plastic_production");
@@ -29,9 +47,12 @@ router.get("/",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastics_production/:id:
+ * paths:
+ *  /global_plastics_production/:id:
  *    get:
  *      description: This should return all users
+ *      responses:
+ *          '200'
  */
 router.get('/:id', async(req,res)=>{
     try{
