@@ -4,29 +4,8 @@ const { database } = require('pg/lib/defaults');
 const router = express.Router();
 
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
-// ROUTES
 
-/**
- * @swagger
- * tags:
- *   name: Global Plastic Production
- *   description: Greetings API from TheCodeBUzz
- */
- 
-/**
- * @swagger
- * path:
- *  /global_plastic_production:
- *    get:
- *      summary: Get greeting message from TheCodebuzz
- *      responses:
- *        "200":
- *          description: GET reponse from API
- *          content:
- *            application/json:
- *              schema:
- *                type: string
- */
+
 router.get("/",async(req,res) =>{
     try{
         const records = await pool.query("SELECT * FROM global_plastic_production");
