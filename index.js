@@ -38,8 +38,12 @@ const options = {
       },
       tags: [
         {
-            "name": "User",
-            "description": "Endpoints"
+            "name": "Global Plastic Production",
+            "description": ""
+        },
+        {
+          "name": "Use2r",
+          "description": ""
         }
      ],
       servers: [

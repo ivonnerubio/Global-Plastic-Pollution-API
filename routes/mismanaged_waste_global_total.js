@@ -6,11 +6,18 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 
 
+/** 
+ * @swagger
+ * tags:
+ *   name: Total Global Mismanaged Waste
+ *   description: API to for the Total Global Mismanaged Waste
+*/
+
 /**
  * @swagger
  * components:
  *  schemas:
- *      Mismanaged Waste Global:
+ *     Total Global Mismanaged Waste:
  *          type: object
  *          required:
  *              - Entity

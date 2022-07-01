@@ -5,6 +5,15 @@ const router = express.Router();
 
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 
+
+/** 
+ * @swagger
+ * tags:
+ *   name: Global Plastic Production
+ *   description: API to the global plastic productions
+*/
+
+
 /**
  * @swagger
  * components:
@@ -33,6 +42,13 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              description: The actual amount of global plastic production for the year
  *              
 */
+
+/**
+ * @swagger
+ * /global_plastics_production:
+ *    get:
+ *      description: This should return all users
+ */
 router.get("/",async(req,res) =>{
     try{
         const records = await pool.query("SELECT * FROM global_plastic_production");
