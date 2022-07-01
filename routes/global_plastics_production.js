@@ -20,10 +20,10 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              type: integer
  *              description: The auto generator primary key/ID of the record
  *           Entity:
- *              type: text
+ *              type: string
  *              description: The type of entity
  *           Code: 
- *              type: text
+ *              type: string
  *              description: The code of the entity
  *           Year: 
  *              type: integer
@@ -32,16 +32,7 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              type: integer
  *              description: The actual amount of global plastic production for the year
  *              
- * tags:
- *   name: Global Plastic Production
- *   description: 
- * paths:
- *  /global_plastics_production/:id:
- *    get:
- *      description: This should return all users
- *      responses:
- *          '200'
- */
+*/
 router.get("/",async(req,res) =>{
     try{
         const records = await pool.query("SELECT * FROM global_plastic_production");

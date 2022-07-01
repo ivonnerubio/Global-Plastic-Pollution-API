@@ -6,28 +6,50 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-	
+
 /**
  * @swagger
- * tags:
- *   name: Per Capita Mismatched
- *   description: 
- */
- 
-/**
- * @swagger
- * path:
- *  /hello:
- *    get:
- *      summary: Get greeting message from TheCodebuzz
- *      responses:
- *        "200":
- *          description: GET reponse from API
- *          content:
- *            application/json:
- *              schema:
- *                type: string
- */
+ * components:
+ *  schemas:
+ *      Per Capita Mismanaged Plastic:
+ *          type: object
+ *          required:
+ *              - Entity
+ *              - Year
+ *          properties:
+ *           id:
+ *              type: integer
+ *              description: The auto generator primary key/ID of the record
+ *           Entity:
+ *              type: string
+ *              description: The type of entity
+ *           Code: 
+ *              type: string
+ *              description: The code of the entity
+ *           Year: 
+ *              type: integer
+ *              description: The year of the record
+ *           Per capita mismanaged plastic waste:
+ *              type: double
+ *              description: The actual amount of global mismanaged waste for the year
+ *           GDP per capita: 
+ *              type: double
+ *              description: The GDP per capita
+ *           Total Population:
+ *              type: integer
+ *              description: The total population
+ *           Continent:
+ *              type: string
+ *              description: The continent of the record
+ *          Example:    
+ *              id: 1
+ *              entity: Albania
+ *              Code: ALB
+ *              Year: 2010
+ *              Mismanaged_Waste: 0.0933
+ *              
+ *              
+*/
 router.get("/",async(req,res)=>{
     try{
         const records = await pool.query("SELECT * FROM per_capita_mismanaged");

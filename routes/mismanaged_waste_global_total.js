@@ -6,29 +6,55 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-	
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      Mismanaged Waste Global:
+ *          type: object
+ *          required:
+ *              - Entity
+ *              - Year
+ *              - Global Plastic Production
+ *          properties:
+ *           id:
+ *              type: integer
+ *              description: The auto generator primary key/ID of the record
+ *           Entity:
+ *              type: string
+ *              description: The type of entity
+ *           Code: 
+ *              type: string
+ *              description: The code of the entity
+ *           Year: 
+ *              type: integer
+ *              description: The year of the record
+ *           Mismanaged_Waste:
+ *              type: double
+ *              description: The actual amount of global mismanaged waste for the year
+ *          Example:    
+ *              id: 1
+ *              entity: Albania
+ *              Code: ALB
+ *              Year: 2010
+ *              Mismanaged_Waste: 0.0933
+ *              
+ *              
+*/
 /**
  * @swagger
  * tags:
- *   name: Mismanaged Waste
+ *   name: User
  *   description: 
- */
- 
-/**
- * @swagger
- * path:
- *  /hello:
- *    get:
- *      summary: Get greeting message from TheCodebuzz
- *      responses:
- *        "200":
- *          description: GET reponse from API
- *          content:
- *            application/json:
- *              schema:
- *                type: string
+ * /global_plastics_production:
+ *    post:
+ *      description: This should return all users
  */
 router.get("/",async(req,res)=>{
+    	// #swagger.tags = ['User']
+        // #swagger.description = 'Endpoint para obter um usuário.'
+	    
     try{
         const records = await pool.query("SELECT * FROM per_capita_mismanaged");
         res.json(records.rows);
@@ -89,3 +115,18 @@ router.delete("/:id",async (req,res) =>{
 
 
 module.exports = router;
+
+
+module.exports = function (app) {
+	
+    app.get('/users/:id', (req, res) => {
+	// #swagger.tags = ['User']
+    // #swagger.description = 'Endpoint para obter um usuário.'
+	    
+	const filtro = req.query.filtro
+
+        return res.status(404).send(false)
+
+    })
+
+}

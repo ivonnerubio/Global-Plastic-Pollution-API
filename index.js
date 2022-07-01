@@ -36,6 +36,12 @@ const options = {
           email: "irubio081@outlook.com"
         }
       },
+      tags: [
+        {
+            "name": "User",
+            "description": "Endpoints"
+        }
+     ],
       servers: [
         {
           url: "http://localhost:8080/"
