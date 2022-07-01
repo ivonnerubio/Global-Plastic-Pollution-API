@@ -44,15 +44,6 @@ router.get("/",async(req,res) =>{
 });
 
 
-/**
- * @swagger
- * paths:
- *  /global_plastics_production/:id:
- *    get:
- *      description: This should return all users
- *      responses:
- *          '200'
- */
 router.get('/:id', async(req,res)=>{
     try{
         const {id} = req.params;
@@ -91,18 +82,9 @@ router.post("/",async(req,res) =>{
 });
 
 
-/**
- * @swagger
- * /global_plastics_production:
- *    update:
- *      description: This should return all users
- */
 router.patch("/:id",async(req,res)=>{
 
 });
-
-
-
 
 
 /**

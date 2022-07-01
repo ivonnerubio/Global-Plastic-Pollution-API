@@ -12,7 +12,7 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  * components:
  *  schemas:
  *      Per Capita Mismanaged Plastic:
- *          type: object
+ *          type: object        
  *          required:
  *              - Entity
  *              - Year

@@ -4,7 +4,6 @@ const { database } = require('pg/lib/defaults');
 const router = express.Router();
 
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
-// ROUTES
 
 
 /**
@@ -42,19 +41,7 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              
  *              
 */
-/**
- * @swagger
- * tags:
- *   name: User
- *   description: 
- * /global_plastics_production:
- *    post:
- *      description: This should return all users
- */
-router.get("/",async(req,res)=>{
-    	// #swagger.tags = ['User']
-        // #swagger.description = 'Endpoint para obter um usuário.'
-	    
+router.get("/",async(req,res)=>{	    
     try{
         const records = await pool.query("SELECT * FROM per_capita_mismanaged");
         res.json(records.rows);
@@ -115,18 +102,3 @@ router.delete("/:id",async (req,res) =>{
 
 
 module.exports = router;
-
-
-module.exports = function (app) {
-	
-    app.get('/users/:id', (req, res) => {
-	// #swagger.tags = ['User']
-    // #swagger.description = 'Endpoint para obter um usuário.'
-	    
-	const filtro = req.query.filtro
-
-        return res.status(404).send(false)
-
-    })
-
-}
