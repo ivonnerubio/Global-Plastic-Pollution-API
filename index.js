@@ -25,7 +25,7 @@ const options = {
         title: "Global Plastic Pollution API",
         version: "1.0.0",
         description:
-          "Thecodebuzz test service to demo how to document your API",
+          "This is an API that was created from real live data on this website: ",
         license: {
           name: "MIT",
           url: "https://thecodebuzz.com"
@@ -36,16 +36,6 @@ const options = {
           email: "irubio081@outlook.com"
         }
       },
-      tags: [
-        {
-            "name": "Global Plastic Production",
-            "description": ""
-        },
-        {
-          "name": "Use2r",
-          "description": ""
-        }
-     ],
       servers: [
         {
           url: "http://localhost:8080/"
