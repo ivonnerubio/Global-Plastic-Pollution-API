@@ -8,14 +8,6 @@ app.use(express.json())
 
 
 
-const global_plastic_production_route = require('./routes/global_plastics_production');
-const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
-const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
-
-app.use('/global_plastic_production',global_plastic_production_route);
-app.use('/mismanaged_waste_global_total',mismanaged_waste_global_total_route);
-app.use('/per_capita_mismanaged',per_capita_mismanaged_route);
-
 
 
 const options = {
@@ -42,10 +34,7 @@ const options = {
         }
       ]
     },
-    apis: ["routes/global_plastics_production.js",
-        "routes/mismanaged_waste_global_total.js",
-        "routes/per_capita_mismanaged.js"
-        ]
+    apis: ["./routes/*.js"]
     };
 
 
@@ -62,6 +51,14 @@ app.get(
   })
 );
 
+
+const global_plastic_production_route = require('./routes/global_plastics_production');
+const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total');
+const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged');
+
+app.use("/global_plastics_production",global_plastic_production_route);
+app.use("/mismanaged_waste_global_total",mismanaged_waste_global_total_route);
+app.use("/per_capita_mismanaged",per_capita_mismanaged_route);
 
 
 

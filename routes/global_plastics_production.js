@@ -5,15 +5,6 @@ const router = express.Router();
 
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 
-
-/** 
- * @swagger
- * tags:
- *   name: Global Plastic Production
- *   description: API to the global plastic productions
-*/
-
-
 /**
  * @swagger
  * components:
@@ -45,9 +36,29 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
 
 /**
  * @swagger
+ * tags:
+ *      name: global_plastics_production
+ *      description: The global_plastic_production api
+ * 
+ */
+
+/**
+ * @swagger
  * /global_plastics_production:
- *    get:
- *      description: This should return all users
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [global_plastics_production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
  */
 router.get("/",async(req,res) =>{
     try{
