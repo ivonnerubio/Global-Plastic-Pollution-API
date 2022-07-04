@@ -37,7 +37,7 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
 /**
  * @swagger
  * tags:
- *      name: global_plastics_production
+ *      name: Global Plastic Production
  *      description: The global_plastic_production api
  * 
  */
@@ -47,7 +47,7 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  * /global_plastics_production:
  *      get:
  *          summary: Returns a list of records of the global plastics
- *          tags: [global_plastics_production]
+ *          tags: [Global Plastic Production]
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -70,7 +70,24 @@ router.get("/",async(req,res) =>{
     }
 });
 
-
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get('/:id', async(req,res)=>{
     try{
         const {id} = req.params;
@@ -88,8 +105,20 @@ router.get('/:id', async(req,res)=>{
 /**
  * @swagger
  * /global_plastics_production:
- *    post:
- *      description: This should return all users
+ *      post:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
  */
 router.post("/",async(req,res) =>{
     try{
@@ -108,7 +137,24 @@ router.post("/",async(req,res) =>{
     }
 });
 
-
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      patch:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.patch("/:id",async(req,res)=>{
 
 });
@@ -116,9 +162,21 @@ router.patch("/:id",async(req,res)=>{
 
 /**
  * @swagger
- * /global_plastics_production:
- *    delete:
- *      description: This should return all users
+ * /global_plastics_production/:id:
+ *      delete:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
  */
 router.delete("/:id", async(req,res)=>{
     try{
