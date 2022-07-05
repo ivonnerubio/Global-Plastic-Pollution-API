@@ -100,6 +100,35 @@ router.get('/:id', async(req,res)=>{
     }
 });
 
+/**
+ * @swagger
+ * /global_plastics_production/:year:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
+ router.get('year/:id', async(req,res)=>{
+    try{
+        const {year} = req.params;
+        const record = await pool.query("SELECT * FROM global_plastic_production WHERE year=$1",[year]);
+        res.json(record.rows[0]);
+
+    }
+    catch(error){
+        console.error(err.message);
+    }
+});
 
 
 /**
