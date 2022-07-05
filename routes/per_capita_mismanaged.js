@@ -6,13 +6,6 @@ const router = express.Router();
 const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-API/data/database/database.js");
 // ROUTES
 
-/** 
- * @swagger
- * tags:
- *   name: Per Capita Mismanaged Plastic
- *   description: API to for the Per Capita Mismanaged Plastic
-*/
-
 /**
  * @swagger
  * components:
@@ -56,6 +49,33 @@ const pool = require("/Users/ivonne/Documents/GitHub/Global-Plastic-Pollution-AP
  *              
  *              
 */
+
+/**
+ * @swagger
+ * tags:
+ *      name: Per Capita Mismanaged Plastic
+ *      description: The global_plastic_production api
+ * 
+ */
+
+/**
+ * @swagger
+ * /per_capita_mismanaged:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Per Capita Mismanaged Plastic]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get("/",async(req,res)=>{
     try{
         const records = await pool.query("SELECT * FROM per_capita_mismanaged");
@@ -67,7 +87,24 @@ router.get("/",async(req,res)=>{
 });
 
 
-// GET RECORD BY ID
+/**
+ * @swagger
+ * /per_capita_mismanaged/:id:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Per Capita Mismanaged Plastic]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get("/:id",async (req,res) =>{
     try{
         const {id} = req.params;
@@ -80,7 +117,24 @@ router.get("/:id",async (req,res) =>{
 });
 
 
-// POST A NEW RECORD
+/**
+ * @swagger
+ * /per_capita_mismanaged:
+ *      post:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Per Capita Mismanaged Plastic]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.post("/",async (req,res) =>{
     try{
         const {Entity} = req.body;
@@ -101,13 +155,47 @@ router.post("/",async (req,res) =>{
 });
 
 
-// UPDATE RECORD
+/**
+ * @swagger
+ * /per_capita_mismanaged:
+ *      patch:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Per Capita Mismanaged Plastic]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.patch("/:id",async(req,res)=>{
 
 });
 
 
-// DELETE RECORD BY ID
+/**
+ * @swagger
+ * /per_capita_mismanaged:
+ *      delete:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Per Capita Mismanaged Plastic]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.delete("/:id",async (req,res) =>{
     try{
         const {id} = req.params;
