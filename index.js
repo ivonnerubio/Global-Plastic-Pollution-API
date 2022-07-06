@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const PORT = 5432;
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsondoc = require("swagger-jsdoc");
 
