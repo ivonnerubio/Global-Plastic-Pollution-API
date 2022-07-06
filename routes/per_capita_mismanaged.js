@@ -3,7 +3,7 @@ const { database } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-const pool = require("./data/database/database.js");
+const pool = require("data/database/database.js");
 // ROUTES
 
 /**
