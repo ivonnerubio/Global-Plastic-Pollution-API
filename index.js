@@ -30,7 +30,7 @@ const options = {
       },
       servers: [
         {
-          url: "http://localhost:8080/docs"
+          url: "./docs"
         }
       ]
     },
