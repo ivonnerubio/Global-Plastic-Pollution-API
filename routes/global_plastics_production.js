@@ -3,7 +3,7 @@ const { database } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-const pool = require("data/database/database.js");
+const pool = require("./data/database/database.js");
 
 /**
  * @swagger
@@ -60,7 +60,7 @@ const pool = require("data/database/database.js");
  *                              
  * 
  */
-router.get("/global_plastics_production",async(req,res) =>{
+router.get("/",async(req,res) =>{
     try{
         const records = await pool.query("SELECT * FROM global_plastic_production");
         res.json(records.rows)
@@ -88,7 +88,7 @@ router.get("/global_plastics_production",async(req,res) =>{
  *                              
  * 
  */
-router.get('/global_plastics_production/:id', async(req,res)=>{
+router.get('/:id', async(req,res)=>{
     try{
         const {id} = req.params;
         const record = await pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id]);
@@ -100,35 +100,35 @@ router.get('/global_plastics_production/:id', async(req,res)=>{
     }
 });
 
-// /**
-//  * @swagger
-//  * /global_plastics_production/:year:
-//  *      get:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
-//  router.get('year/:id', async(req,res)=>{
-//     try{
-//         const {year} = req.params;
-//         const record = await pool.query("SELECT * FROM global_plastic_production WHERE year=$1",[year]);
-//         res.json(record.rows[0]);
+/**
+ * @swagger
+ * /global_plastics_production/:year:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
+ router.get('year/:id', async(req,res)=>{
+    try{
+        const {year} = req.params;
+        const record = await pool.query("SELECT * FROM global_plastic_production WHERE year=$1",[year]);
+        res.json(record.rows[0]);
 
-//     }
-//     catch(error){
-//         console.error(err.message);
-//     }
-// });
+    }
+    catch(error){
+        console.error(err.message);
+    }
+});
 
 
 /**
@@ -149,7 +149,7 @@ router.get('/global_plastics_production/:id', async(req,res)=>{
  *                              
  * 
  */
-router.post("/global_plastics_production",async(req,res) =>{
+router.post("/",async(req,res) =>{
     try{
         const {Entity} = req.body;
         const {Code} = req.body;
@@ -166,27 +166,27 @@ router.post("/global_plastics_production",async(req,res) =>{
     }
 });
 
-// /**
-//  * @swagger
-//  * /global_plastics_production/:id:
-//  *      patch:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
-// router.patch("/:id",async(req,res)=>{
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      patch:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
+router.patch("/:id",async(req,res)=>{
 
-// });
+});
 
 
 /**
@@ -207,7 +207,7 @@ router.post("/global_plastics_production",async(req,res) =>{
  *                              
  * 
  */
-router.delete("/global_plastics_production/:id", async(req,res)=>{
+router.delete("/:id", async(req,res)=>{
     try{
         const {id} = req.params;
         const record = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
