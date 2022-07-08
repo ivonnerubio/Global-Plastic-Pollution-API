@@ -59,15 +59,17 @@ const pool = require("../data/database/database.js");
 //  *                              
 //  * 
 //  */
-// router.get("/",async(req,res) =>{
-//     try{
-//         const records = await pool.query("SELECT * FROM global_plastic_production");
-//         res.json(records.rows)
-//     }
-//     catch(err){
-//         console.error(err.message);
-//     }
-// });
+router.get("/",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    
+    pool.query("select * from global_plastic_production", (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(results.rows);
+        });
+});
 
 // /**
 //  * @swagger
