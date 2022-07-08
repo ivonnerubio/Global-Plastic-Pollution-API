@@ -101,6 +101,25 @@ router.get("/",async(req,res) =>{
 //     }
 // });
 
+
+router.get("/:id",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    
+    const {id} = req.params;
+    pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(record.rows[0]);
+        });
+});
+
+
+
+
+
+
 // /**
 //  * @swagger
 //  * /global_plastics_production/:year:
