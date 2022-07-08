@@ -102,18 +102,18 @@ router.get("/",async(req,res) =>{
 // });
 
 
-router.get("/:id",async(req,res) =>{
-    const {id} = req.params;
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+// router.get("/:id",async(req,res) =>{
+//     const {id} = req.params;
+//     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     
-    pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id], (err, results) => {
-        if (err) {
-            console.log(err); 
-            throw err;
-        }
-        res.json(record.rows[0]);
-        });
-});
+//     pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id], (err, results) => {
+//         if (err) {
+//             console.log(err); 
+//             throw err;
+//         }
+//         res.json(record.rows[0]);
+//         });
+// });
 
 
 
