@@ -198,11 +198,23 @@ router.post("/",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.json(results.rows[0]);
+       // res.json(results.rows[0]);
         res.json("Record sucessfully added");
     });
 });
 
+router.get("/:id",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+    const {id} = req.params;
+    pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(results.rows[0]);
+    });
+});
 
 
 
