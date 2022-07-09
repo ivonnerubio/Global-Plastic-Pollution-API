@@ -199,6 +199,7 @@ router.post("/",async(req,res) =>{
             throw err;
         }
         res.json(results.rows[0]);
+        res.json("Record sucessfully added");
         });
 });
 
