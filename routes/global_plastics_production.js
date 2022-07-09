@@ -100,7 +100,6 @@ router.get("/",async(req,res) =>{
 //         console.error(err.message);
 //     }
 // });
-
 router.get("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -148,6 +147,9 @@ router.get("/:id",async(req,res) =>{
 // });
 
 
+
+
+
 // /**
 //  * @swagger
 //  * /global_plastics_production:
@@ -182,6 +184,27 @@ router.get("/:id",async(req,res) =>{
 //         console.error(err.message);
 //     }
 // });
+
+router.post("/",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+    const {Entity} = req.body;
+    const {Code} = req.body;
+    const {Year} = req.body;
+    const {Global_plastics_production} = req.body;
+    pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
+        [Entity,Code,Year,Global_plastics_production], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(results.rows[0]);
+        });
+});
+
+
+
+
 
 // /**
 //  * @swagger
@@ -224,16 +247,18 @@ router.get("/:id",async(req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.delete("/:id", async(req,res)=>{
-//     try{
-//         const {id} = req.params;
-//         const record = await pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id]);
-//         res.json("Record deleted successfully");
-//     }
-//     catch(err){
-//         console.error(err.message);
-//     }
-// });
+router.delete("/:id", async(req,res)=>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+    const {id} = req.params;
+    pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json("Record deleted successfully");
+        });
+});
 
 
 module.exports = router;
