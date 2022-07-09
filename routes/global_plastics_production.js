@@ -185,22 +185,22 @@ router.get("/:id",async(req,res) =>{
 //     }
 // });
 
-// router.post("/",async(req,res) =>{
-//     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+router.post("/",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-//     const {Entity} = req.body;
-//     const {Code} = req.body;
-//     const {Year} = req.body;
-//     const {Global_plastics_production} = req.body;
-//     pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
-//         [Entity,Code,Year,Global_plastics_production], (err, results) => {
-//         if (err) {
-//             console.log(err); 
-//             throw err;
-//         }
-//         res.json(results.rows[0]);
-//         });
-// });
+    const {Entity} = req.body;
+    const {Code} = req.body;
+    const {Year} = req.body;
+    const {Global_plastics_production} = req.body;
+    pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4) RETURNING * `,
+        [Entity,Code,Year,Global_plastics_production], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(results.rows[0]);
+        });
+});
 
 
 
