@@ -186,7 +186,7 @@ router.get("/:id",async(req,res) =>{
 // });
 
 router.post("/",async(req,res) =>{
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  //  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
     const {Entity} = req.body;
     const {Code} = req.body;
@@ -203,18 +203,21 @@ router.post("/",async(req,res) =>{
     });
 });
 
-router.get("/:id",async(req,res) =>{
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+// router.post("/",async (req,res) =>{
+//     try{
+//         const {Entity} = req.body;
+//         const {Code} = req.body;
+//         const {Year} = req.body;
+//         const {Mismanaged_waste} = req.body;
 
-    const {id} = req.params;
-    pool.query("SELECT * FROM global_plastic_production WHERE id=$1",[id], (err, results) => {
-        if (err) {
-            console.log(err); 
-            throw err;
-        }
-        res.json(results.rows[0]);
-    });
-});
+//         const record = await pool.query(`INSERT INTO mismanaged_waste_global_total (Entity, Code, Year, Mismanaged_waste) VALUES ($1,$2,$3,$4) RETURNING *`,[Entity,Code,Year,Mismanaged_waste]);
+
+//         res.json(record.rows[0]);
+//     }
+//     catch (err){
+//         console.error(err.message);
+//     }
+// });
 
 
 
