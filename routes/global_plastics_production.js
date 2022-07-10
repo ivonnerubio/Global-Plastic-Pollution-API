@@ -1,8 +1,10 @@
 const express = require('express');
-
+const bodyParser = require('body-parser')
 const router = express.Router();
 
 const pool = require("../data/database/database.js");
+
+express.use(bodyParser);
 
 // /**
 //  * @swagger
