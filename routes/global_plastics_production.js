@@ -171,8 +171,7 @@ router.post("/",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.json(results.rows[0]);
-        //res.send("Record sucessfully added")
+        res.send("Record sucessfully added")
         });
 });
 
