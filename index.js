@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
     res
       .status(200)
       .send('Hello, world!')
+      .send("https://global-plastic-pollution-api.herokuapp.com/global_plastic_production")
+      .send("https://global-plastic-pollution-api.herokuapp.com/mismanaged_waste_global_total")
+      .send("https://global-plastic-pollution-api.herokuapp.com/per_capita_mismanaged")
+
 });
 
 const global_plastic_production_route = require('./routes/global_plastics_production.js');
