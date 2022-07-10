@@ -5,10 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
     res
       .status(200)
-      .send('Hello, world!IUVINNE')
-      .send('https://global-plastic-pollution-api.herokuapp.com/global_plastic_production')
-      .send('https://global-plastic-pollution-api.herokuapp.com/mismanaged_waste_global_total')
-      .send('https://global-plastic-pollution-api.herokuapp.com/per_capita_mismanaged')
+      .send('https://global-plastic-pollution-api.herokuapp.com/global_plastic_production \n https://global-plastic-pollution-api.herokuapp.com/mismanaged_waste_global_total \n https://global-plastic-pollution-api.herokuapp.com/per_capita_mismanaged')
 
 });
 
