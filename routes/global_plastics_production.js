@@ -162,9 +162,11 @@ router.get("/:id",async(req,res) =>{
 router.post("/",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-    const { Entity, Code, Year, Global_plastics_production} = req.body
+    const { Entity, Code, Year, Global_plastics_production} = req.body;
 
-    pool.query(`INSERT INTO global_plastic_production(Entity,Code,Year,Global_plastics_production) VALUES ($1,$2,$3,$4)`, [Entity,Code,Year,Global_plastics_production], (err, results) => {
+    pool.query(`INSERT INTO global_plastic_production (Entity,Code,Year,Global_plastics_production) VALUES ($1, $2, $3, $4)`, 
+        [Entity, Code, Year, Global_plastics_production], 
+        (err, results) => {
         if (err) {
             console.log(err); 
             throw err;
@@ -174,7 +176,20 @@ router.post("/",async(req,res) =>{
         });
 });
 
-
+const addBook = (request, response) => {
+    const { author, title } = request.body
+  
+    pool.query(
+      'INSERT INTO books (author, title) VALUES ($1, $2)',
+      [author, title],
+      (error) => {
+        if (error) {
+          throw error
+        }
+        response.status(201).json({ status: 'success', message: 'Book added.' })
+      }
+    )
+  }
 
 
 
