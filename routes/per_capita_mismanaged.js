@@ -75,7 +75,6 @@ const pool = require("../data/database/database.js");
 //  *                              
 //  * 
 //  */
-
 router.get("/",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     
