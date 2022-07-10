@@ -1,7 +1,5 @@
 const express = require('express');
 
-express.use(express.json());
-
 const router = express.Router();
 
 const pool = require("../data/database/database.js");
