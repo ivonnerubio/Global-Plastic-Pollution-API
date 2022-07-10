@@ -75,15 +75,19 @@ const pool = require("../data/database/database.js");
 //  *                              
 //  * 
 //  */
-// router.get("/",async(req,res)=>{
-//     try{
-//         const records = await pool.query("SELECT * FROM per_capita_mismanaged");
-//         res.json(records.rows);
-//     }
-//     catch(err){
-//         console.error(err.message);
-//     }
-// });
+
+router.get("/",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    
+    pool.query("SELECT * FROM per_capita_mismanaged", (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json(results.rows);
+        });
+});
+
 
 
 // /**
