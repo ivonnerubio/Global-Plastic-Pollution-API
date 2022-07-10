@@ -4,7 +4,8 @@ const router = express.Router();
 
 const pool = require("../data/database/database.js");
 
-express.use(bodyParser);
+express.use(bodyParser.json())
+express.use(bodyParser.urlencoded({ extended: true }))
 
 // /**
 //  * @swagger
