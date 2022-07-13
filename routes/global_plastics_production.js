@@ -216,18 +216,20 @@ router.post("/",async(req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.delete("/:id", async(req,res)=>{
-//     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+router.delete("/:id", async(req,res)=>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-//     const {id} = req.params;
-//     pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id], (err, results) => {
-//         if (err) {
-//             console.log(err); 
-//             throw err;
-//         }
-//         res.json("Record deleted successfully");
-//         });
-// });
+    const {id} = req.params;
+    pool.query("DELETE FROM global_plastic_production WHERE id = $1", [id], (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json("Record deleted successfully");
+        });
+});
+
+
 
 
 module.exports = router;
