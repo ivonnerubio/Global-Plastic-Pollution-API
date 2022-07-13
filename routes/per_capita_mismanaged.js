@@ -140,24 +140,22 @@ router.get("/:id",async(req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.post("/",async (req,res) =>{
-//     try{
-//         const {Entity} = req.body;
-//         const {Code} = req.body;
-//         const {Year} = req.body;
-//         const {Per_capita_mismanaged_plastic_waste} = req.body;
-//         const {Gdp_per_capita} = req.body;
-//         const {Total_population} = req.body;
-//         const {Continent} = req.body;
+router.post("/",async (req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-//         const record = await pool.query(`INSERT INTO per_capita_mismanaged (Entity, Code, Year, Per_capita_mismanaged_plastic_waste,Gdp_per_capita,Total_population,Continent) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,[Entity,Code,Year,Per_capita_mismanaged_plastic_waste, Gdp_per_capita,Total_population,Continent]);
+    const {Entity, Code, Year, Per_capita_mismanaged_plastic_waste, Gdp_per_capita, Total_population, Continent} = req.body;
 
-//         res.json(record.rows[0]);
-//     }
-//     catch (err){
-//         console.error(err.message);
-//     }
-// });
+    pool.query(`INSERT INTO per_capita_mismanaged (Entity, Code, Year, Per_capita_mismanaged_plastic_waste,Gdp_per_capita, Total_population, Continent) VALUES ($1,$2,$3,$4,$5,$6,$7)`, [Entity, Code, Year, Per_capita_mismanaged_plastic_waste, Gdp_per_capita, Total_population, Continent],
+    (err, results) => {
+    if (err) {
+        console.log(err); 
+        throw err;
+    }
+    res.send("Record sucessfully added!");
+    res.json(record.rows[0]);
+    });
+});
+
 
 
 // /**
