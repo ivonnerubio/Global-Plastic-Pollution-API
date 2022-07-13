@@ -198,16 +198,21 @@ router.post("/",async (req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.delete("/:id",async (req,res) =>{
-//     try{
-//         const {id} = req.params;
-//         const record = await pool.query("DELETE FROM per_capita_mismanaged WHERE id=$1",[id]);
-//         res.json(record.rows[0]);
-//     }  
-//     catch(err){
-//         console.error(err.message);
-//     }
-// });
+router.delete("/:id",async (req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+    const {id} = req.params;
+    pool.query("DELETE FROM per_capita_mismanaged WHERE id=$1",[id],(err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.json("Record deleted successfully");
+        });
+});
+
+
+
 
 
 module.exports = router;
