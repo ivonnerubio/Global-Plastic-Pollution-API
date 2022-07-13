@@ -193,9 +193,24 @@ router.post("/",async(req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.patch("/:id",async(req,res)=>{
+router.post("/:id",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-// });
+    const {id} = req.params;
+
+    const { entity, code, year, global_plastics_production} = req.body;
+
+    pool.query(`UPDATE global_plastic_production (Entity,Code,Year,Global_plastics_production) VALUES ($1, $2, $3, $4) WHERE id=$5`, 
+        [entity, code, year, global_plastics_production,id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record sucessfully updated!");
+        });
+});
+
 
 
 // /**
