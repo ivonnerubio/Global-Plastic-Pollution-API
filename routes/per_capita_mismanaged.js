@@ -152,7 +152,6 @@ router.post("/",async (req,res) =>{
         throw err;
     }
     res.send("Record sucessfully added!");
-    res.json(record.rows[0]);
     });
 });
 
