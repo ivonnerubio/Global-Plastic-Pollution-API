@@ -162,7 +162,7 @@ router.get("/:id",async(req,res) =>{
 router.post("/",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-    const {Entity} = req.body;
+    res.json({requestBody: req.body}) 
 
     // const { Entity, Code, Year, Global_plastics_production} = req.body.Entity;
 
