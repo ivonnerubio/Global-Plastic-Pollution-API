@@ -200,7 +200,7 @@ router.patch("/:id",async(req,res) =>{
 
     const { entity, code, year, global_plastics_production} = req.body;
 
-    if(entity != null){
+    if(entity != ""){
         res.send('this is runnning');
     }
 
