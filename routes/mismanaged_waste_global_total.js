@@ -137,19 +137,19 @@ router.post("/",async (req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
     const { Entity, Code, Year, Mismanaged_waste} = req.body;
-    res.json(req.body);
 
-    // pool.query(`INSERT INTO mismanaged_waste_global_total (Entity,Code,Year,Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
-    //     [Entity, Code, Year, Mismanaged_waste], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully added!");
-    //     res.json(record.rows[0]);
-    // });
+    pool.query(`INSERT INTO mismanaged_waste_global_total (Entity, Code, Year, Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
+        [Entity, Code, Year, Mismanaged_waste], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record sucessfully added!");
+        res.json(record.rows[0]);
+    });
 });
+
 
 // /**
 //  * @swagger
