@@ -1,9 +1,7 @@
-const { response } = require('express');
 const express = require('express');
-
 const router = express.Router();
-
 const pool = require("../data/database/database.js");
+
 
 // /**
 //  * @swagger
@@ -138,7 +136,7 @@ router.post("/",async (req,res) =>{
 
     const { Entity, Code, Year, Mismanaged_waste} = req.body;
 
-    pool.query(`INSERT INTO mismanaged_waste_global_total (Entity, Code, Year, Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
+    pool.query(`INSERT INTO mismanaged_waste_global_total (Entity,Code,Year,Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
         [Entity, Code, Year, Mismanaged_waste], 
         (err, results) => {
         if (err) {
