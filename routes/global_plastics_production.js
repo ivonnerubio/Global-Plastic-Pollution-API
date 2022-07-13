@@ -193,7 +193,7 @@ router.post("/",async(req,res) =>{
 //  *                              
 //  * 
 //  */
-router.post("/:id",async(req,res) =>{
+router.patch("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
     const {id} = req.params;
