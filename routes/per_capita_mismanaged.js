@@ -143,9 +143,9 @@ router.get("/:id",async(req,res) =>{
 router.post("/",async (req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-    const {Entity, Code, Year, Per_capita_mismanaged_plastic_waste, Gdp_per_capita, Total_population, Continent} = req.body;
+    const {entity, code, year, per_capita_mismanaged_plastic_waste, gdp_per_capita, total_population, continent} = req.body;
 
-    pool.query(`INSERT INTO per_capita_mismanaged (Entity, Code, Year, Per_capita_mismanaged_plastic_waste,Gdp_per_capita, Total_population, Continent) VALUES ($1,$2,$3,$4,$5,$6,$7)`, [Entity, Code, Year, Per_capita_mismanaged_plastic_waste, Gdp_per_capita, Total_population, Continent],
+    pool.query(`INSERT INTO per_capita_mismanaged (Entity, Code, Year, Per_capita_mismanaged_plastic_waste,Gdp_per_capita, Total_population, Continent) VALUES ($1,$2,$3,$4,$5,$6,$7)`, [entity, code, year, per_capita_mismanaged_plastic_waste, gdp_per_capita, total_population, continent],
     (err, results) => {
     if (err) {
         console.log(err); 
