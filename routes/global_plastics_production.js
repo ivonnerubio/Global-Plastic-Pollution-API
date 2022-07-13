@@ -173,7 +173,7 @@ router.post("/",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.send("Record sucessfully added")
+        res.send("Record sucessfully added!", req.body);
         });
 
 });
