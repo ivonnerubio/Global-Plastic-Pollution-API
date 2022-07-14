@@ -201,20 +201,21 @@ router.patch("/:id",async(req,res) =>{
 
     const { entity, code, year, global_plastics_production} = req.body;
 
+
+
+    if(entity != ""){
+        pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
+        [entity, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record sucessfully updated!");
+        });
+    }
+
     res.send("hi");
-
-    // if(entity != ""){
-    //     pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
-    //     [entity, id], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully updated!");
-    //     });
-    // }
-
     // if(code != ""){{
     //     pool.query(`UPDATE global_plastic_production (Code) VALUES ($1) WHERE id=$2`, 
     //     [code, id], 
