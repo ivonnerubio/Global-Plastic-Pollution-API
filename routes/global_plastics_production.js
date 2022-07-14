@@ -211,7 +211,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!entity.value){
+    if(!code.value){
         pool.query(`UPDATE global_plastic_production SET Code = $1 WHERE id=$2`, 
         [code, id], 
         (err, results) => {
@@ -222,7 +222,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!entity.value){
+    if(!year.value){
         pool.query(`UPDATE global_plastic_production SET Year = $1 WHERE id=$2`, 
         [year, id], 
         (err, results) => {
@@ -233,7 +233,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!entity.value){
+    if(!global_plastics_production.value){
         pool.query(`UPDATE global_plastic_production SET Global_plastics_production = $1 WHERE id=$2`, 
         [global_plastics_production, id], 
         (err, results) => {
