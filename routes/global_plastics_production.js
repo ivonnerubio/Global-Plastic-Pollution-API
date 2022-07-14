@@ -200,8 +200,6 @@ router.patch("/:id",async(req,res) =>{
 
     const { entity, code, year, global_plastics_production} = req.body;
 
-
-
     if(!entity.value){
         pool.query(`UPDATE global_plastic_production SET Entity = $1 WHERE id=$2`, 
         [entity, id], 
@@ -212,60 +210,41 @@ router.patch("/:id",async(req,res) =>{
         }
         res.send("Record updated successfully!");
     })}
-    });
-    // res.send("hi");
-    // if(code != ""){{
-    //     pool.query(`UPDATE global_plastic_production (Code) VALUES ($1) WHERE id=$2`, 
-    //     [code, id], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully updated!");
-    //     });
-    // }
 
-    // if(year != ""){{
-    //     pool.query(`UPDATE global_plastic_production (Year) VALUES ($1) WHERE id=$2`, 
-    //     [year, id], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully updated!");
-    //     });
-    // }
-    
-    // if(global_plastics_production != ""){{
-    //     pool.query(`UPDATE global_plastic_production (Global_plastics_production) VALUES ($1) WHERE id=$2`, 
-    //     [global_plastics_production, id], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully updated!");
-    //     });
-    // }
+    if(!entity.value){
+        pool.query(`UPDATE global_plastic_production SET Code = $1 WHERE id=$2`, 
+        [code, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record updated successfully!");
+    })}
 
-    // if(entity == "" && code == "" && year =="" && global_plastics_production ==""){
-    //     res.send("Please enter values for empty values");
-    // }
-    
-    // res.send("reached the end");
-    // pool.query(`UPDATE global_plastic_production (Entity,Code,Year,Global_plastics_production) VALUES ($1, $2, $3, $4) WHERE id=$5`, 
-    //     [entity, code, year, global_plastics_production, id], 
-    //     (err, results) => {
-    //     if (err) {
-    //         console.log(err); 
-    //         throw err;
-    //     }
-    //     res.send("Record sucessfully updated!");
-    //     });
+    if(!entity.value){
+        pool.query(`UPDATE global_plastic_production SET Year = $1 WHERE id=$2`, 
+        [year, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record updated successfully!");
+    })}
 
+    if(!entity.value){
+        pool.query(`UPDATE global_plastic_production SET Global_plastics_production = $1 WHERE id=$2`, 
+        [global_plastics_production, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Record updated successfully!");
+    })}
 
+});
 
 
 
