@@ -211,7 +211,7 @@ router.patch("/:id",async(req,res) =>{
             throw err;
         }
         res.send("Record updated successfully!");
-    });
+    })
 
     // res.send("hi");
     // if(code != ""){{
