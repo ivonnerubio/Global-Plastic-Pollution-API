@@ -211,8 +211,8 @@ router.patch("/:id",async(req,res) =>{
             throw err;
         }
         res.send("Record updated successfully!");
-    })
-
+    })}
+    });
     // res.send("hi");
     // if(code != ""){{
     //     pool.query(`UPDATE global_plastic_production (Code) VALUES ($1) WHERE id=$2`, 
@@ -265,7 +265,7 @@ router.patch("/:id",async(req,res) =>{
     //     res.send("Record sucessfully updated!");
     //     });
 
-});
+
 
 
 
