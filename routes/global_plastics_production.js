@@ -214,7 +214,7 @@ router.patch("/:id",async(req,res) =>{
         });
     }
 
-    res.send("hi");
+    // res.send("hi");
     // if(code != ""){{
     //     pool.query(`UPDATE global_plastic_production (Code) VALUES ($1) WHERE id=$2`, 
     //     [code, id], 
