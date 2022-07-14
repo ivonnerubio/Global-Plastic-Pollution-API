@@ -203,15 +203,16 @@ router.patch("/:id",async(req,res) =>{
 
 
     if(!entity.value){
-        pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
-        [entity, id], 
-        (err, results) => {
-        if (err) {
-            console.log(err); 
-            throw err;
-        }
+        
+        // pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
+        // [entity, id], 
+        // (err, results) => {
+        // if (err) {
+        //     console.log(err); 
+        //     throw err;
+        // }
         res.send("Record sucessfully updated!");
-        });
+        //});
     }
 
     // res.send("hi");
