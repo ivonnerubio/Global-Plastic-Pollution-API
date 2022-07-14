@@ -198,9 +198,9 @@ router.patch("/:id",async(req,res) =>{
 
     const {id} = req.params;
 
-    const { entity, code, year, global_plastics_production} = req.body;
+    const {entity, code, year, global_plastics_production} = req.body;
 
-    if(!entity.value){
+    if(!entity){
         pool.query(`UPDATE global_plastic_production SET Entity = $1 WHERE id=$2`, 
         [entity, id], 
         (err, results) => {
@@ -211,7 +211,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!code.value){
+    if(!code){
         pool.query(`UPDATE global_plastic_production SET Code = $1 WHERE id=$2`, 
         [code, id], 
         (err, results) => {
@@ -222,7 +222,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!year.value){
+    if(!year){
         pool.query(`UPDATE global_plastic_production SET Year = $1 WHERE id=$2`, 
         [year, id], 
         (err, results) => {
@@ -233,7 +233,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Record updated successfully!");
     })}
 
-    if(!global_plastics_production.value){
+    if(!global_plastics_production){
         pool.query(`UPDATE global_plastic_production SET Global_plastics_production = $1 WHERE id=$2`, 
         [global_plastics_production, id], 
         (err, results) => {
