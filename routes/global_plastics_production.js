@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require("../data/database/database.js");
@@ -203,8 +202,8 @@ router.patch("/:id",async(req,res) =>{
 
 
 
-    if(entity != ""){
-        res.send("im empty!");
+    if(!entity.value){
+        res.send("im not empty!");
         // pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
         // [entity, id], 
         // (err, results) => {
