@@ -264,7 +264,7 @@ router.patch("/:id",async(req,res) =>{
     //     res.send("Record sucessfully updated!");
     //     });
 
-};
+});
 
 
 
