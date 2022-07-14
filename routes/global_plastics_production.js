@@ -204,6 +204,7 @@ router.patch("/:id",async(req,res) =>{
 
 
     if(entity != ""){
+        res.send("im empty!");
         // pool.query(`UPDATE global_plastic_production (Entity) VALUES ($1) WHERE id=$2`, 
         // [entity, id], 
         // (err, results) => {
