@@ -136,7 +136,7 @@ router.post("/",async (req,res) =>{
 
     const {entity, code, year, mismanaged_waste} = req.body;
 
-    pool.query(`INSERT INTO mismanaged_waste_global_total (Entity,Code,Year,Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
+    pool.query(`INSERT INTO mismanaged_waste_global_total(Entity,Code,Year,Mismanaged_waste) VALUES ($1, $2, $3, $4)`, 
         [entity, code, year, mismanaged_waste], 
         (err, results) => {
         if (err) {
@@ -204,7 +204,7 @@ router.patch("/:id",async(req,res) =>{
         res.send("Year updated successfully!");
     })}
 
-    if(Mismanaged_waste){
+    if(mismanaged_waste){
         pool.query(`UPDATE mismanaged_waste_global_total SET Mismanaged_waste = $1 WHERE id=$2`, 
         [Mismanaged_waste, id], 
         (err, results) => {
