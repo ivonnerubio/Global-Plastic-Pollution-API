@@ -147,7 +147,6 @@ router.post("/",async (req,res) =>{
     });
 });
 
-
 // /**
 //  * @swagger
 //  * /mismanaged_waste_global_totals/:id:
@@ -166,10 +165,56 @@ router.post("/",async (req,res) =>{
 //  *                              
 //  * 
 //  */
-// router.patch("/:id",async(req,res)=>{
+router.patch("/:id",async(req,res) =>{
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-// });
+    const {id} = req.params;
+    const {entity, code, year, mismanaged_waste} = req.body;
 
+    if(entity){
+        pool.query(`UPDATE mismanaged_waste_global_total SET Entity = $1 WHERE id=$2`, 
+        [entity, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Entity updated successfully!");
+    })}
+
+    if(code){
+        pool.query(`UPDATE mismanaged_waste_global_total SET Code = $1 WHERE id=$2`, 
+        [code, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Code updated successfully!");
+    })}
+
+    if(year){
+        pool.query(`UPDATE mismanaged_waste_global_total SET Year = $1 WHERE id=$2`, 
+        [year, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Year updated successfully!");
+    })}
+
+    if(Mismanaged_waste){
+        pool.query(`UPDATE mismanaged_waste_global_total SET Mismanaged_waste = $1 WHERE id=$2`, 
+        [Mismanaged_waste, id], 
+        (err, results) => {
+        if (err) {
+            console.log(err); 
+            throw err;
+        }
+        res.send("Mismanaged Waste updated successfully!");
+    })}
+});
 
 
 // /**
