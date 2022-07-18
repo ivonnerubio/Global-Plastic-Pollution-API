@@ -208,7 +208,7 @@ router.patch("/:id",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.send("Entity updated successfully!");
+        res.send("Record updated successfully!");
     })}
 
     if(code){
@@ -219,7 +219,7 @@ router.patch("/:id",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.send("Code updated successfully!");
+        res.send("Record updated successfully!");
     })}
 
     if(year){
@@ -230,7 +230,7 @@ router.patch("/:id",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.send("Year updated successfully!");
+        res.send("Record updated successfully!");
     })}
 
     if(global_plastics_production){
@@ -241,7 +241,7 @@ router.patch("/:id",async(req,res) =>{
             console.log(err); 
             throw err;
         }
-        res.send("Global Plastics Production updated successfully!");
+        res.send("Record updated successfully!");
     })}
 });
 
