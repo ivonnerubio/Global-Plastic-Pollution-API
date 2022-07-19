@@ -41,7 +41,7 @@ const pool = require("../data/database/database.js");
 
 /**
  * @swagger
- * /global_plastics_production:
+ * /global_plastic_production:
  *      get:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
@@ -71,7 +71,7 @@ router.get("/",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastics_production/:id:
+ * /global_plastic_production/:id:
  *      get:
  *          summary: Returns a list of rsecords of the global plastics
  *          tags: [Global Plastic Production]
@@ -105,7 +105,7 @@ router.get("/:id",async(req,res) =>{
 
 // /**
 //  * @swagger
-//  * /global_plastics_production/:year:
+//  * /global_plastic_production/:year:
 //  *      get:
 //  *          summary: Returns a list of records of the global plastics
 //  *          tags: [Global Plastic Production]
@@ -141,7 +141,7 @@ router.get("/:id",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastics_production:
+ * /global_plastic_production:
  *      post:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
@@ -177,7 +177,7 @@ router.post("/",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastics_production/:id:
+ * /global_plastic_production/:id:
  *      patch:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
@@ -249,7 +249,7 @@ router.patch("/:id",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastics_production/:id:
+ * /global_plastic_production/:id:
  *      delete:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
