@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: true}));
 
 // });
 
-const global_plastic_production_route = require('./routes/global_plastics_production.js');
+const global_plastic_production_route = require('./routes/global_plastic_production.js');
 const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total.js');
 const per_capita_mismanaged_route = require('./routes/per_capita_mismanaged.js');
 
