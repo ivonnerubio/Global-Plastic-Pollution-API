@@ -44,7 +44,7 @@ const options = {
       },
       servers: [
         {
-          url: "/"
+          url: ""
         }
       ]
     },
@@ -55,7 +55,7 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use(
-  "/",
+  "",
   swaggerUi.serve,
   swaggerUi.setup(specs, { explorer: true })
 );
