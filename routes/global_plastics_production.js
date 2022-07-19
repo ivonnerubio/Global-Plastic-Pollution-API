@@ -2,34 +2,34 @@ const express = require('express');
 const router = express.Router();
 const pool = require("../data/database/database.js");
 
-// /**
-//  * @swagger
-//  * components:
-//  *  schemas:
-//  *      Global Plastic Production:
-//  *          type: object
-//  *          required:
-//  *              - Entity
-//  *              - Year
-//  *              - Global Plastic Production
-//  *          properties:
-//  *           id:
-//  *              type: integer
-//  *              description: The auto generator primary key/ID of the record
-//  *           Entity:
-//  *              type: string
-//  *              description: The type of entity
-//  *           Code: 
-//  *              type: string
-//  *              description: The code of the entity
-//  *           Year: 
-//  *              type: integer
-//  *              description: The year of the record
-//  *           Global Plastic Production:
-//  *              type: integer
-//  *              description: The actual amount of global plastic production for the year
-//  *              
-// */
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      Global Plastic Production:
+ *          type: object
+ *          required:
+ *              - Entity
+ *              - Year
+ *              - Global Plastic Production
+ *          properties:
+ *           id:
+ *              type: integer
+ *              description: The auto generator primary key/ID of the record
+ *           Entity:
+ *              type: string
+ *              description: The type of entity
+ *           Code: 
+ *              type: string
+ *              description: The code of the entity
+ *           Year: 
+ *              type: integer
+ *              description: The year of the record
+ *           Global Plastic Production:
+ *              type: integer
+ *              description: The actual amount of global plastic production for the year
+ *              
+*/
 
 // /**
 //  * @swagger

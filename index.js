@@ -1,7 +1,12 @@
-const express = require('express');
+const express = require('express'),
+bodyParser = require("body-parser"),
+swaggerJsdoc = require("swagger-jsdoc"),
+swaggerUi = require("swagger-ui-express");
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 
 app.get('/', (req, res) => {
     res
@@ -19,6 +24,41 @@ app.use("/mismanaged_waste_global_total",mismanaged_waste_global_total_route);
 app.use("/per_capita_mismanaged",per_capita_mismanaged_route);
 
 
+const options = {
+    swaggerDefinition: {
+      openapi: "3.0.0",
+      info: {
+        title: "Global Plastic Pollution API",
+        version: "1.0.0",
+        description:
+          "This is an API that was created from real live data on this website: ",
+        license: {
+          name: "MIT",
+          url: "https://thecodebuzz.com"
+        },
+        contact: {
+          name: "Ivonne Rubio",
+          url: "https://www.ivonnerubio.com",
+          email: "irubio081@outlook.com"
+        }
+      },
+      servers: [
+        {
+          url: "./docs"
+        }
+      ]
+    },
+    apis: ["./routes/*.js"]
+    };
+
+
+
+const specs = swaggerJsdoc(options);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
