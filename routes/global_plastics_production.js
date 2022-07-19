@@ -31,32 +31,32 @@ const pool = require("../data/database/database.js");
  *              
 */
 
-// /**
-//  * @swagger
-//  * tags:
-//  *      name: Global Plastic Production
-//  *      description: The global_plastic_production api
-//  * 
-//  */
+/**
+ * @swagger
+ * tags:
+ *      name: Global Plastic Production
+ *      description: The global_plastic_production api
+ * 
+ */
 
-// /**
-//  * @swagger
-//  * /global_plastics_production:
-//  *      get:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
+/**
+ * @swagger
+ * /global_plastics_production:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get("/",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     
@@ -69,24 +69,24 @@ router.get("/",async(req,res) =>{
         });
 });
 
-// /**
-//  * @swagger
-//  * /global_plastics_production/:id:
-//  *      get:
-//  *          summary: Returns a list of rsecords of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      get:
+ *          summary: Returns a list of rsecords of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -139,24 +139,24 @@ router.get("/:id",async(req,res) =>{
 
 
 
-// /**
-//  * @swagger
-//  * /global_plastics_production:
-//  *      post:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
+/**
+ * @swagger
+ * /global_plastics_production:
+ *      post:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.post("/",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -175,24 +175,24 @@ router.post("/",async(req,res) =>{
 
 
 
-// /**
-//  * @swagger
-//  * /global_plastics_production/:id:
-//  *      patch:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      patch:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.patch("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -247,24 +247,24 @@ router.patch("/:id",async(req,res) =>{
 
 
 
-// /**
-//  * @swagger
-//  * /global_plastics_production/:id:
-//  *      delete:
-//  *          summary: Returns a list of records of the global plastics
-//  *          tags: [Global Plastic Production]
-//  *          responses:
-//  *              200:
-//  *                  description: all records hosted
-//  *                  content:
-//  *                      application/json:
-//  *                          schema:
-//  *                              type: array
-//  *                              items:
-//  *                                  $ref: '#/components/schemas/Global Plastic Production'
-//  *                              
-//  * 
-//  */
+/**
+ * @swagger
+ * /global_plastics_production/:id:
+ *      delete:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.delete("/:id", async(req,res)=>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
