@@ -8,12 +8,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
-app.get('/', (req, res) => {
-    res
-      .status(200)
-      .send('https://global-plastic-pollution-api.herokuapp.com/global_plastic_production \n https://global-plastic-pollution-api.herokuapp.com/mismanaged_waste_global_total \n https://global-plastic-pollution-api.herokuapp.com/per_capita_mismanaged')
+// app.get('/', (req, res) => {
+//     res
+//       .status(200)
+//       .send('https://global-plastic-pollution-api.herokuapp.com/global_plastic_production \n https://global-plastic-pollution-api.herokuapp.com/mismanaged_waste_global_total \n https://global-plastic-pollution-api.herokuapp.com/per_capita_mismanaged')
 
-});
+// });
 
 const global_plastic_production_route = require('./routes/global_plastics_production.js');
 const mismanaged_waste_global_total_route = require('./routes/mismanaged_waste_global_total.js');
