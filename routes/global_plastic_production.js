@@ -88,8 +88,8 @@ router.get("/",async(req,res) =>{
  *                      application/json:
  *                          schema:
  *                              type: array
- *                              items:
- *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                          example:
+ *                              name: '#/components/schemas/Global Plastic Production'
  *          
  *                              
  * 
