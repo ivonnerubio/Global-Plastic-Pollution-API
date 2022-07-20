@@ -89,7 +89,7 @@ router.get("/",async(req,res) =>{
  *                          schema:
  *                              type: array
  *                          example:
- *                              name: '#/components/schemas/Global Plastic Production'
+ *                              name: "Ivonne"
  *          
  *                              
  * 
