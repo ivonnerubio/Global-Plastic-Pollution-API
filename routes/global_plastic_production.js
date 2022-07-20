@@ -73,8 +73,6 @@ router.get("/",async(req,res) =>{
  * @swagger
  * /global_plastic_production/:id:
  *      get:
- *          summary: Returns a list of rsecords of the global plastics
- *          tags: [Global Plastic Production]
  *          parameters:
  *              - in: query
  *              name: limit
@@ -82,6 +80,8 @@ router.get("/",async(req,res) =>{
  *                  type: integer
  *                  minimum: 1
  *                  example: 20
+ *          summary: Returns a list of rsecords of the global plastics
+ *          tags: [Global Plastic Production]
  *          responses:
  *              200:
  *                  description: all records hosted
