@@ -75,6 +75,13 @@ router.get("/",async(req,res) =>{
  *      get:
  *          summary: Returns a list of rsecords of the global plastics
  *          tags: [Global Plastic Production]
+ *          parameters:
+ *              - in: query
+ *              name: limit
+ *              schema:
+ *                  type: integer
+ *                  minimum: 1
+ *                  example: 20
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -84,6 +91,7 @@ router.get("/",async(req,res) =>{
  *                              type: array
  *                              items:
  *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *          
  *                              
  * 
  */
