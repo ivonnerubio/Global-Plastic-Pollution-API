@@ -95,6 +95,26 @@ router.get("/",async(req,res) =>{
  *                              
  * 
  */
+
+
+/**
+ * @swagger
+ * /mismanaged_waste_global_total/:id:
+ *      get:
+ *          summary: Returns a list of records of the global plastics
+ *          tags: [Global Plastic Production]
+ *          responses:
+ *              200:
+ *                  description: all records hosted
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                              
+ * 
+ */
 router.get("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
