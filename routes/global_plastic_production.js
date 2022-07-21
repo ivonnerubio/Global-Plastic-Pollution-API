@@ -99,12 +99,13 @@ router.get("/",async(req,res) =>{
 
 /**
  * @swagger
- * /ivonne/:id:
+ * /ivonne/{id}:
  *      get:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
  *          parameters:
  *              - in: path
+ *              name: id
  *          responses:
  *              200:
  *                  description: all records hosted
