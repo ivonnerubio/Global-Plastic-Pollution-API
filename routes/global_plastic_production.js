@@ -106,10 +106,10 @@ router.get("/",async(req,res) =>{
   *         parameters:
  *              - in: path
  *              name: id
- *              schema:
- *                  type: string
- *              required: true
- *              description: the id of the record
+//  *              schema:
+//  *                  type: string
+//  *              required: true
+//  *              description: the id of the record
  *          responses:
  *              200:
  *                  description: all records hosted
