@@ -99,7 +99,7 @@ router.get("/",async(req,res) =>{
 
 /**
  * @swagger
- * /mismanaged_waste_global_total/:id:
+ * /ivonne/:id:
  *      get:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
