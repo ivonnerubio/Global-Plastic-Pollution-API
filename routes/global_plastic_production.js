@@ -73,14 +73,15 @@ router.get("/",async(req,res) =>{
  * @swagger
  * /global_plastic_production/:id:
  *      get:
- *          requestBody:
- *              required: true
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref:'#components/schemas/global_plastic_production'
  *          summary: Returns a list of rsecords of the global plastics
  *          tags: [Global Plastic Production]
+ *          parameters:
+ *              - in: path
+ *              name: id
+ *              schema:
+ *                  type: string
+ *              required: true
+ *              description: the id of the record
  *          responses:
  *              200:
  *                  description: all records hosted
