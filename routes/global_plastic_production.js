@@ -104,8 +104,8 @@ router.get("/",async(req,res) =>{
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
   *         parameters:
- *              - in: path
- *              name: id
+//  *              - in: path
+//  *              name: id
 //  *              schema:
 //  *                  type: string
 //  *              required: true
