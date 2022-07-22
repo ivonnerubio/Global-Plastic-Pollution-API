@@ -156,6 +156,9 @@ router.get("/:id",async(req,res) =>{
  *                  application/json:
  *                      schema:
  *                          $ref: '#/components/schemas/Global Plastic Production'
+ *                  text/plain:
+ *                      schema:
+ *                          type: string
  *          responses:
  *              200:
  *                  description: all records hosted
