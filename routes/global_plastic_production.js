@@ -105,7 +105,9 @@ router.get("/",async(req,res) =>{
  *          tags: [Global Plastic Production]
  *          parameters:
  *              - in: path
- *              name: 
+ *              schema:
+ *                  type: string
+ *                  required: true
  *          responses:
  *              200:
  *                  description: all records hosted
