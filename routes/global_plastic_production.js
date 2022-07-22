@@ -71,17 +71,14 @@ router.get("/",async(req,res) =>{
 
 /**
  * @swagger
- * /global_plastic_production/:id:
+ * /global_plastic_production/{id}:
  *      get:
  *          summary: Returns a list of rsecords of the global plastics
  *          tags: [Global Plastic Production]
  *          parameters:
- *              - in: path
- *              name: id
- *              schema:
- *                  type: string
- *              required: true
- *              description: the id of the record
+ *              - name: id
+ *                in: path
+ *                description: The ID of the record
  *          responses:
  *              200:
  *                  description: all records hosted
