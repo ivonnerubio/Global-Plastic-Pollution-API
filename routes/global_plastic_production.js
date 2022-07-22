@@ -73,7 +73,7 @@ router.get("/",async(req,res) =>{
  * @swagger
  * /global_plastic_production/{id}:
  *      get:
- *          summary: Returns a list of rsecords of the global plastics
+ *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
  *          parameters:
  *              - name: id
@@ -87,7 +87,7 @@ router.get("/",async(req,res) =>{
  *                          schema:
  *                              type: array
  *                          example:
- *                              name: "Ivonne"
+ *                              name: "5"
  *          
  *                              
  * 
