@@ -149,6 +149,10 @@ router.get("/:id",async(req,res) =>{
  *      post:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
+ *          parameters:
+ *              - name: id
+ *                in: path
+ *                description: The ID of the record
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -185,6 +189,10 @@ router.post("/",async(req,res) =>{
  *      patch:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
+ *          parameters:
+ *              - name: id
+ *                in: path
+ *                description: The ID of the record
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -257,6 +265,10 @@ router.patch("/:id",async(req,res) =>{
  *      delete:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
+ *          parameters:
+ *              - name: id
+ *                in: path
+ *                description: The ID of the record
  *          responses:
  *              200:
  *                  description: all records hosted
