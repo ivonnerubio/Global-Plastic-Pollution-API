@@ -20,15 +20,19 @@ const pool = require("../data/database/database.js");
  *           Entity:
  *              type: string
  *              description: The type of entity
+ *              example: "World"
  *           Code: 
  *              type: string
  *              description: The code of the entity
+ *              example: "OWID_WRL"
  *           Year: 
  *              type: integer
  *              description: The year of the record
+ *              example: 2022
  *           Global Plastic Production:
  *              type: integer
  *              description: The actual amount of global plastic production for the year
+ *              example: 33000000
  *  
  *              
 */
