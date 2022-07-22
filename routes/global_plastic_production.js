@@ -92,30 +92,6 @@ router.get("/",async(req,res) =>{
  *                              
  * 
  */
-
-
-/**
- * @swagger
- * /ivonne/{id}:
- *      get:
- *          summary: Returns a list of records of the global plastics
- *          tags: [Global Plastic Production]
- *          parameters:
- *              - name: id
- *                in: path
- *                description: The ID of the record
- *          responses:
- *              200:
- *                  description: all records hosted
- *                  content:
- *                      application/json:
- *                          schema:
- *                              type: array
- *                              items:
- *                                  $ref: '#/components/schemas/Global Plastic Production'
- *                              
- * 
- */
 router.get("/:id",async(req,res) =>{
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -128,7 +104,6 @@ router.get("/:id",async(req,res) =>{
         res.json(results.rows[0]);
         });
 });
-
 
 
 
