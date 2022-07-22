@@ -16,6 +16,7 @@ const pool = require("../data/database/database.js");
  *           id:
  *              type: integer
  *              description: The auto generator primary key/ID of the record
+ *              example: 50
  *           Entity:
  *              type: string
  *              description: The type of entity
@@ -28,6 +29,7 @@ const pool = require("../data/database/database.js");
  *           Global Plastic Production:
  *              type: integer
  *              description: The actual amount of global plastic production for the year
+ *  
  *              
 */
 
@@ -156,9 +158,6 @@ router.get("/:id",async(req,res) =>{
  *                  application/json:
  *                      schema:
  *                          $ref: '#/components/schemas/Global Plastic Production'
- *                  text/plain:
- *                      schema:
- *                          type: string
  *          responses:
  *              200:
  *                  description: all records hosted
