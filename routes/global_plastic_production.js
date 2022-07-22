@@ -78,7 +78,7 @@ router.get("/",async(req,res) =>{
  *          parameters:
  *              - name: id
  *                in: path
- *                description: The ID of the record
+ *                description: The ID of the record that will be retrieved
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -149,6 +149,13 @@ router.get("/:id",async(req,res) =>{
  *      post:
  *          summary: Returns a list of records of the global plastics
  *          tags: [Global Plastic Production]
+ *          requestBody:
+ *              description: The body of the request to add a new record
+ *              required: true
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Global Plastic Production'
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -188,7 +195,7 @@ router.post("/",async(req,res) =>{
  *          parameters:
  *              - name: id
  *                in: path
- *                description: The ID of the record
+ *                description: The ID of the record of the record that will be updated
  *          responses:
  *              200:
  *                  description: all records hosted
@@ -264,7 +271,7 @@ router.patch("/:id",async(req,res) =>{
  *          parameters:
  *              - name: id
  *                in: path
- *                description: The ID of the record
+ *                description: The ID of the record that will be deleted
  *          responses:
  *              200:
  *                  description: all records hosted
