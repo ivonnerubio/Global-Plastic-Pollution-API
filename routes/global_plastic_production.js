@@ -33,6 +33,29 @@ const pool = require("../data/database/database.js");
  *              type: integer
  *              description: The actual amount of global plastic production for the year
  *              example: 33000000
+  *      Post Global Plastic Production:
+ *          type: object
+ *          required:
+ *              - Entity
+ *              - Year
+ *              - Global Plastic Production
+ *          properties:
+ *           Entity:
+ *              type: string
+ *              description: The type of entity
+ *              example: "World"
+ *           Code: 
+ *              type: string
+ *              description: The code of the entity
+ *              example: "OWID_WRL"
+ *           Year: 
+ *              type: integer
+ *              description: The year of the record
+ *              example: 1999
+ *           Global Plastic Production:
+ *              type: integer
+ *              description: The actual amount of global plastic production for the year
+ *              example: 32400000
  *  
  *              
 */
