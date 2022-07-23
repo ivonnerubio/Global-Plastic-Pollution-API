@@ -184,10 +184,10 @@ router.get("/:id",async(req,res) =>{
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Global Plastic Production'
+ *                          $ref: '#/components/schemas/Post Global Plastic Production'
  *          responses:
  *              200:
- *                  description: all records hosted
+ *                  description: all records hosted 
  *                  content:
  *                      application/json:
  *                          schema:
