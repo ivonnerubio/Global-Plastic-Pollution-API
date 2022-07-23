@@ -193,7 +193,7 @@ router.get("/:id",async(req,res) =>{
  *                          schema:
  *                              type: array
  *                              items:
- *                                  $ref: '#/components/schemas/Global Plastic Production'
+ *                                  $ref: '#/components/schemas/Post Global Plastic Production'
  *                              
  * 
  */
